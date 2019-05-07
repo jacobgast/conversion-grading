@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="parent row">
+    <div *ngIf="!initState" id="number-prompt" class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <label for="number" hidden>How many questions do you want to grade?</label>
+          <input id="number" type="number" min="1" [(ngModel)]="arraySize" class="col-12" placeholder="How many questions?" />
+          <button (click)="createGradingView()" id="number-button" class="col-12">Show questions</button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="initState" id="grading-view" class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <button (click)="reset()" class="col-12 back-button">Change number of questions</button>
+        </div>
+        
+        <div class="clearfix"></div>
+
+        <app-grade *ngFor="let grade of gradeArray" [grade]="grade" class="col-12"></app-grade>
+
+        <div class="col-12">
+          <button (click)="clear()" class="col-12 clear-button">Clear</button>
+          <button (click)="grade()" class="col-12 grade-button">Grade</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

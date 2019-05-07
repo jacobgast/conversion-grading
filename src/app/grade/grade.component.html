@@ -1,0 +1,35 @@
+<div class="container-fluid question-box">
+  <div class="row">
+    <div class="col-12 row">
+    
+      <label for="init-value" hidden>Original value:</label>
+      <input name="init-value" type="number" step="any" [(ngModel)]="grade.initValue" placeholder="Original value" class="col-12" />
+      
+        <label for="init-format" hidden>From:</label>
+        <select name="init-format" [(ngModel)]="grade.initFormat" class="col-12">
+          <option [disabled]="true">From</option>
+          <option [disabled]="grade.targetFormat === 'Farenheit'" value="Farenheit">Farenheit</option>
+          <option [disabled]="grade.targetFormat === 'Celsius'" value="Celsius">Celsius</option>
+          <option [disabled]="grade.targetFormat === 'Kelvin'" value="Kelvin">Kelvin</option>
+          <option [disabled]="grade.targetFormat === 'Rankine'" value="Rankine">Rankine</option>
+        </select>
+        
+        <label for="target-format" hidden>To:</label>
+        <select name="target-format" [(ngModel)]="grade.targetFormat" class="col-12">
+          <option [disabled]="true">To</option>
+          <option [disabled]="grade.initFormat === 'Farenheit'" value="Farenheit">Farenheit</option>
+          <option [disabled]="grade.initFormat === 'Celsius'" value="Celsius">Celsius</option>
+          <option [disabled]="grade.initFormat === 'Kelvin'" value="Kelvin">Kelvin</option>
+          <option [disabled]="grade.initFormat === 'Rankine'" value="Rankine">Rankine</option>
+        </select>
+      
+      <label for="input-value" hidden>Student response:</label>
+      <input name="input-value" type="number" step="any" [(ngModel)]="grade.inputValue" placeholder="Student response" class="col-12" />
+      
+      <p class="col-12 result-box">
+        {{ grade.result }}
+      </p>
+
+    </div>
+  </div>
+</div>
